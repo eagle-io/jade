@@ -1,0 +1,87 @@
+{
+  "name": "jade",
+  "description": "Jade template engine (based on legacy 0.35.0 with updated modules). To replace with Pug: https://pugjs.org/api/migration-v2.html",
+  "version": "0.35.1",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/visionmedia/jade.git"
+  },
+  "_args": [
+    [
+      "jade@0.35.1",
+      "/Users/nick/eagleio/eagle.io-ui"
+    ]
+  ],
+  "_from": "jade",
+  "_id": "jade",
+  "_inBundle": false,
+  "_integrity": "sha1-dewdlmoSA3M2E+jBgOKqhoXBbak=",
+  "_location": "/jade",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "jade@0.35.1",
+    "name": "jade",
+    "escapedName": "jade",
+    "rawSpec": "0.35.1",
+    "saveSpec": null,
+    "fetchSpec": "0.35.1"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_spec": "0.35.1",
+  "author": {
+    "name": "TJ Holowaychuk",
+    "email": "tj@vision-media.ca"
+  },
+  "bin": {
+    "jade": "./bin/jade"
+  },
+  "browser": {
+    "./lib/filters.js": "./lib/filters-client.js"
+  },
+  "bugs": {
+    "url": "https://github.com/visionmedia/jade/issues"
+  },
+  "component": {
+    "scripts": {
+      "jade": "runtime.js"
+    }
+  },
+  "dependencies": {
+    "character-parser": "1.2.0",
+    "commander": "2.0.0",
+    "constantinople": "3.1.2",
+    "mkdirp": "0.3.x",
+    "monocle": "1.1.50",
+    "transformers": "2.1.0",
+    "with": "~1.1.0"
+  },
+  "devDependencies": {
+    "browserify": "*",
+    "coffee-script": "*",
+    "less": "*",
+    "linify": "*",
+    "markdown": "*",
+    "mocha": "*",
+    "should": "*",
+    "stylus": "*",
+    "uglify-js": "^2.8.29",
+    "uubench": "*"
+  },
+  "homepage": "https://github.com/visionmedia/jade#readme",
+  "main": "./index.js",
+  "man": [
+    "./jade.1"
+  ],
+  "scripts": {
+    "build": "npm run compile",
+    "compile": "npm run compile-full && npm run compile-runtime",
+    "compile-full": "browserify ./lib/jade.js --standalone jade -x ./node_modules/transformers > jade.js",
+    "compile-runtime": "browserify ./lib/runtime.js --standalone jade > runtime.js",
+    "prepublish": "npm prune && linify transform bin && npm run build",
+    "test": "mocha -R spec"
+  }
+}
